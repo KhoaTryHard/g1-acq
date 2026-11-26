@@ -1,5 +1,9 @@
 # g1-acq
 
+**ProxyPin iOS (free):** [Hướng dẫn cài đặt tiếng Việt](docs/proxypin-vi.md) ·
+[Scripts import](proxypin/g1-scripts.json) · [Request Mapping import](proxypin/g1-request-map.json).
+ProxyPin artifacts are generated from the original sources; device offer verification is separate from offline tests.
+
 [![Telegram](https://img.shields.io/badge/Telegram-AI羊毛交流群-26A5E4?logo=telegram&logoColor=white)](https://t.me/muihbb)
 
 > 💬 **AI羊毛交流群**:https://t.me/muihbb —— 交流 AI 优惠、订阅羊毛
