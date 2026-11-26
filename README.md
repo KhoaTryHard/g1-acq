@@ -1,6 +1,8 @@
 # g1-acq
 
-**ProxyPin iOS (free):** [Hướng dẫn cài đặt tiếng Việt](docs/proxypin-vi.md) ·
+**Free Windows lab:** [Hướng dẫn mitmproxy + iPhone](docs/windows-lab-vi.md).
+
+**ProxyPin iOS (experimental; observed JavaScriptCore crash on iOS 1.4.0):** [Hướng dẫn cài đặt tiếng Việt](docs/proxypin-vi.md) ·
 [Scripts import](proxypin/g1-scripts.json) · [Request Mapping import](proxypin/g1-request-map.json).
 ProxyPin artifacts are generated from the original sources; device offer verification is separate from offline tests.
 
