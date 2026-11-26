@@ -1,0 +1,3 @@
+# Keep generated blocks byte-for-byte consistent on Windows and Unix.
+* text=auto eol=lf
+*.png binary
