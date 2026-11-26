@@ -58,9 +58,9 @@ async function onRequest(context, request) {
   }
 }
 `;
-// ProxyPin's script URL matcher receives domainPath, whereas Request Mapping
-// matches the complete request URL. Both are additionally checked by the JS.
-const scripts = [{ enabled: true, name: "G1 ACQ ProxyPin v1.0.0", url: "^one\\.google\\.com/", script: responseScript }];
+// ProxyPin's domainPath includes scheme + host + path (but no query), whereas
+// Request Mapping matches the full URL. Both are additionally checked by JS.
+const scripts = [{ enabled: true, name: "G1 ACQ ProxyPin v1.0.0", url: "^https://one\\.google\\.com/", script: responseScript }];
 const maps = [{ enabled: true, name: "G1 SKU Report ProxyPin v1.0.0", type: "script",
   url: "^https://one\\.google\\.com/g1-sku-report[/]{0,1}([?]*|)$",
   item: { script: reportScript } }];

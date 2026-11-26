@@ -10,6 +10,8 @@ Không cần mua Shadowrocket hoặc tạo tài khoản ProxyPin.
 - [g1-scripts.json](../proxypin/g1-scripts.json): nhập vào mục **Scripts /
   Script / 脚本**, dùng chức năng nhập file. Gói chứa đầy đủ mã xử lý và
   thu thập SKU, không tải thêm script khi chạy.
+  Bộ lọc URL phải là `^https://one\.google\.com/`: ProxyPin đưa cả scheme
+  vào `domainPath`, nên bộ lọc thiếu `https://` sẽ không chạy script.
 - [g1-request-map.json](../proxypin/g1-request-map.json): nhập vào mục
   **Request Mapping / Ánh xạ yêu cầu / 请求映射**. Gói tạo trang quản lý bằng
   phản hồi cục bộ. Đây là một loại cấu hình riêng, không nhập vào Scripts.
@@ -34,6 +36,12 @@ mỗi loại để tránh xử lý lặp.
 5. Bật Scripts, Request Mapping và hai mục G1 vừa nhập. Nhấn nút chạy,
    xác nhận thêm cấu hình VPN khi iOS yêu cầu. Bật tùy chọn chạy nền sẵn
    có của ProxyPin để chuyển sang Google App/Safari mà lab vẫn chạy.
+   Trong **Cài đặt iOS → Cài đặt chung → VPN & Quản lý thiết bị → VPN**,
+   phải thấy **ProxyPin — Connected/Đã kết nối**. MCP `Running` hoặc trạng
+   thái proxy server `recording=true` chỉ xác nhận máy chủ nội bộ, không
+   chứng minh VPN hệ thống đã bật. Có thể mở cửa sổ nổi qua **Settings →
+   Preferences → Window shortcut icon**, rồi nhấn biểu tượng cửa sổ trong
+   Requests khi chuyển sang ứng dụng khác.
 6. Không dùng **Force Quit / vuốt tắt ProxyPin** khi đang chạy. Muốn dừng
    lab, dùng nút dừng trong ProxyPin; muốn khôi phục trước lab thì tắt hai
    mục G1 và tắt giải mã cho miền đã thêm.

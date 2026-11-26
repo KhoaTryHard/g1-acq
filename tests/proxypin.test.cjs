@@ -82,8 +82,13 @@ test("import packages use ProxyPin's actual URL parsing and embed self-contained
   assert.equal(maps[0].type, "script");
   const scriptMatch = new RegExp(scripts[0].url.replaceAll("*", ".*"));
   const mapMatch = new RegExp(maps[0].url.replaceAll("*", ".*").replace("?", "\\?"));
-  assert(scriptMatch.test("one.google.com/ai"));
-  assert(!scriptMatch.test("evil.one.google.com/ai"));
+  // ProxyPin HttpRequest.domainPath is remoteDomain() + path; remoteDomain()
+  // includes the scheme (pinned ProxyPin v1.4.0 network/http/http.dart).
+  assert(scriptMatch.test("https://one.google.com/ai"));
+  assert(scriptMatch.test("https://one.google.com/plans"));
+  assert(!scriptMatch.test("https://evil.one.google.com/ai"));
+  assert(!scriptMatch.test("http://one.google.com/ai"));
+  assert(!scriptMatch.test("https://oneXgoogleXcom/ai"));
   for (const suffix of ["", "/", "?", "?format=json", "/?format=json"]) assert(mapMatch.test(ROOT + suffix), suffix);
   for (const url of [ROOT + "evil", ORIGIN + "/ai?x=1", "https://evil.test/g1-sku-report", "https://oneXgoogleXcom/g1-sku-report"]) assert(!mapMatch.test(url), url);
   assert(!scripts[0].remoteUrl);
